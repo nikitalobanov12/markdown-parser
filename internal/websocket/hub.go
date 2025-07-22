@@ -31,13 +31,13 @@ func NewHub() *Hub {
 
 // Run starts the hub event loop
 func (h *Hub) Run() {
-	log.Println("WebSocket hub started")
+	log.Println("INFO: WebSocket hub started")
 	
 	for {
 		select {
 		case client := <-h.register:
 			h.clients[client] = true
-			log.Printf("Client connected. Total clients: %d", len(h.clients))
+			log.Printf("INFO: Client connected. Total clients: %d", len(h.clients))
 			
 			// Send connection confirmation
 			response := models.WebSocketResponse{
@@ -59,7 +59,7 @@ func (h *Hub) Run() {
 			if _, ok := h.clients[client]; ok {
 				delete(h.clients, client)
 				close(client.send)
-				log.Printf("Client disconnected. Total clients: %d", len(h.clients))
+				log.Printf("INFO: Client disconnected. Total clients: %d", len(h.clients))
 			}
 
 		case message := <-h.broadcast:

@@ -86,7 +86,7 @@ func main() {
 
 	// Start server
 	address := config.Server.Host + ":" + port
-	log.Printf("Starting markdown parser service on %s", address)
-	log.Printf("CORS origins: %s", strings.Join(config.Server.AllowOrigins, ", "))
+	log.Printf("INFO: Starting markdown parser service on %s", address)
+	log.Printf("INFO: CORS origins: %s", strings.Join(config.Server.AllowOrigins, ", "))
 	log.Fatal(r.Run(":" + port))
 }

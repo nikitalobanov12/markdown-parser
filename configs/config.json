@@ -5,7 +5,7 @@
     "allow_origins": [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://your-nextjs-app.vercel.app",
+      "https://writeshare.nikitalobanov.com",
       "*"
     ]
   },
